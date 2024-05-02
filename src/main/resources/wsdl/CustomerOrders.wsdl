@@ -15,13 +15,52 @@
 					<xsd:element name="quantity" type="xsd:integer" />
 				</xsd:sequence>
 			</xsd:complexType>
+			<xsd:complexType name="order">
+				<xsd:sequence>
+					<xsd:element name="id" type="xsd:integer" />
+					<xsd:element name="product" type="tns:product"
+					maxOccurs="unbounded"></xsd:element>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="getOrdersRequest">
+				<xsd:sequence>
+					<xsd:element name="customerId" type="xsd:integer"/>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="getOrdersResponse">
+				<xsd:sequence>
+					<xsd:element name="order" type="tns:order" maxOccurs="unbounded" minOccurs="1"></xsd:element>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="createOrdersRequest">
+				<xsd:sequence>
+					<xsd:element name="customerId" type="xsd:integer"/>
+					<xsd:element name="order" type="tns:order"/>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="createOrdersResponse">
+				<xsd:sequence>
+					<xsd:element name="result" type="xsd:boolean" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="getOrdersRequest" type="tns:getOrdersRequest"/>
+			<xsd:element name="getOrdersResponse" type="tns:getOrdersResponse"/>
+			<xsd:element name="createOrdersRequest"type="tns:createOrdersRequest"/>
+			<xsd:element name="createOrdersResponse" type="tns:createOrdersResponse"/>
 		</xsd:schema>
 	</wsdl:types>
-	<wsdl:message name="NewOperationRequest">
-		<wsdl:part element="tns:NewOperation" name="parameters" />
+	<wsdl:message name="getOrdersRequest">
+		<wsdl:part element="tns:getOrdersRequest" name="parameters" />
 	</wsdl:message>
-	<wsdl:message name="NewOperationResponse">
-		<wsdl:part element="tns:NewOperationResponse"
+	<wsdl:message name="getOrdersResponse">
+		<wsdl:part element="tns:getOrdersResponse"
+			name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="createOrdersRequest">
+		<wsdl:part element="tns:createOrdersRequest" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="createOrdersResponse">
+		<wsdl:part element="tns:createOrdersResponse"
 			name="parameters" />
 	</wsdl:message>
 	<wsdl:portType name="CustomerOrders">
