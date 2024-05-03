@@ -23,5 +23,11 @@ The portType section describes a set of operations(methods in java) that can be 
  in portType are mapped to a concrete protocol for communication.It defines details such as the message format and the protocol (e.g., SOAP).
   
   The port section specifies the network address where the web service can be accessed.
+  
+  -----------URL----------
+  http://localhost:8080/wsdlfirstws
+  
+  ----------------SOAPUI--------
+  Go to SOAP UI -> new SOAP Projct -> paste the wsdl url in initial WSDL (http://localhost:8080/wsdlfirstws/customerordersservice?wsdl)
 
   
